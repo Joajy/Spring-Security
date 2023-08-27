@@ -5,9 +5,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.config.annotation.web.configurers.CsrfConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -21,18 +23,22 @@ public class SecurityConfig {
     }
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        return http.
-                csrf(AbstractHttpConfigurer::disable)
+        HttpSessionRequestCache requestCache = new HttpSessionRequestCache();
+        requestCache.setMatchingRequestParameterName(null);
+        return http
+                .csrf(CsrfConfigurer::disable)
+                .requestCache(request -> request
+                        .requestCache(requestCache))
                 .authorizeHttpRequests((authorizeRequests) ->
                         authorizeRequests
-                                .requestMatchers("/user/**").authenticated()
-                                .requestMatchers("/manager/**").hasAnyRole("ADMIN", "MANAGER")
-                                .requestMatchers("/admin/**").hasRole("ADMIN")
+                                .requestMatchers(new AntPathRequestMatcher("/user/**")).authenticated()
+                                .requestMatchers(new AntPathRequestMatcher("/manager/**")).hasAnyRole("ADMIN", "MANAGER")
+                                .requestMatchers(new AntPathRequestMatcher("/admin/**")).hasRole("ADMIN")
                                 .anyRequest().permitAll()
                 )
                 .formLogin(login -> login
                         .loginPage("/loginForm")
-                        .loginProcessingUrl("/loginProc")
+                        .loginProcessingUrl("/login")
                         .defaultSuccessUrl("/")
                 )
                 .getOrBuild();
