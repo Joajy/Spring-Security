@@ -1,15 +1,16 @@
-package com.Kim.security.auth;
+package com.Kim.security.config.auth;
 
-import java.io.Serial;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
-
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 
 import com.Kim.security.model.User;
+
+//Security가 /login 주소 요청이 오면 가로채서 로그인 진행
+//로그인 완료 시 Security Session 생성(Security ContextHolder)
 
 // Authentication 객체에 저장할 수 있는 유일한 타입
 public class PrincipalDetails implements UserDetails, OAuth2User{
@@ -65,9 +66,9 @@ public class PrincipalDetails implements UserDetails, OAuth2User{
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        Collection<GrantedAuthority> collect = new ArrayList<>();
-        collect.add(()-> user.getRole());
-        return collect;
+        Collection<GrantedAuthority> collection = new ArrayList<>();
+        collection.add((GrantedAuthority) () -> user.getRole());
+        return collection;
     }
 
     // 리소스 서버로 부터 받는 회원정보

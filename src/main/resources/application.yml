@@ -19,3 +19,23 @@ spring:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     show-sql: true
+    open-in-view: false
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            #이 친구들 Github에 올릴 때는 blur처리 해야함.
+            client-id:
+            client-secret:
+            scope:
+              - email
+              - profile
+          facebook:
+            #이 친구들 Github에 올릴 때는 blur처리 해야함.
+            client-id:
+            client-secret:
+            scope:
+              - email
+              - public_profile
