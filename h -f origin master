@@ -1,0 +1,53 @@
+[33mcommit cd91facd71df7f11853a7f523df967a158b7a8f3[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Mr.Kim <joajy98@gmail.com>
+Date:   Sun Aug 27 14:49:53 2023 +0900
+
+    feat: Security Authorization(ROLE)
+
+[33mcommit 99baa6667e07fa84583a1a0bd878111090ff7259[m
+Author: Mr.Kim <joajy98@gmail.com>
+Date:   Sun Aug 27 12:08:40 2023 +0900
+
+    fix: delete ?continue url after main url(/user?continue -> /user)
+
+[33mcommit f0b965f9f9943850a0db30ec840764d5319af4e4[m
+Author: Mr.Kim <joajy98@gmail.com>
+Date:   Sun Aug 27 12:07:50 2023 +0900
+
+    feat: spring security login
+
+[33mcommit 66aeb4bc1ca4bb91db3ed1cd6cd1bf17a53c8b89[m
+Author: Mr.Kim <joajy98@gmail.com>
+Date:   Wed Aug 23 01:09:47 2023 +0900
+
+    feat: add method with "/login" url
+
+[33mcommit e4c4a8e5123f369f0f7915c09962a5ecfacc41d5[m
+Author: Mr.Kim <joajy98@gmail.com>
+Date:   Sat Aug 19 11:21:37 2023 +0900
+
+    feat: Security Sign Up
+
+[33mcommit 4e46b2541c5eedf44918c64f9dc71e910cb43497[m
+Author: Mr.Kim <joajy98@gmail.com>
+Date:   Fri Aug 18 18:30:00 2023 +0900
+
+    feat: basic Setting(IndexController:index)
+
+[33mcommit 13ec6cabc1b049def01fe2d90f04601125b5831c[m
+Author: Mr.Kim <joajy98@gmail.com>
+Date:   Fri Aug 18 14:32:53 2023 +0900
+
+    docs: create README.md to show project more readability
+
+[33mcommit 590db823aa413fb546015ffdc81e54c94b98c80a[m
+Author: Mr.Kim <joajy98@gmail.com>
+Date:   Fri Aug 18 14:27:52 2023 +0900
+
+    feat: basic setting(view of index, joinForm, and loginForm)
+
+[33mcommit 2f5309306f4f92998ed6409a4515f4c393684245[m
+Author: Mr.Kim <joajy98@gmail.com>
+Date:   Fri Aug 18 00:23:42 2023 +0900
+
+    Initial commit
